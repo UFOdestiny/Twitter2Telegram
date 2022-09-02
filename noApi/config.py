@@ -5,13 +5,12 @@
 # @Auth     : UFOdestiny
 # @Desc     : config
 
-import os
 import platform
 
 
 class TelegramAccount:
-    api_id = 1
-    api_hash = 'dc3'
+    api_id = 18733780
+    api_hash = 'dc3607b8cf6585cc6911cda8fc33b6e8'
 
     plat = platform.system().lower()
     if plat == 'windows':
@@ -24,18 +23,8 @@ class LogSetting:
     path = "log"
 
 
-class TwitterAccount:
-    bearer_token = ""
-    user_id = 3
+class CacheSetting:
     json_name = "cache.json"
-
-    plat = platform.system().lower()
-    if plat == 'windows':
-        os.environ['http_proxy'] = 'http://127.0.0.1:7890'
-        os.environ['https_proxy'] = 'http://127.0.0.1:7890'
-    elif plat == 'linux':
-        os.environ['http_proxy'] = 'http://127.0.0.1:7891'
-        os.environ['https_proxy'] = 'http://127.0.0.1:7891'
 
 
 if __name__ == "__main__":

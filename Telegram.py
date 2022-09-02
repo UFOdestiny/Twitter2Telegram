@@ -29,15 +29,15 @@ class Telegram(TelegramAccount):
         self.app = Client("TG", api_id=self.api_id, api_hash=self.api_hash, proxy=self.proxy)
         self.logger = Logger(file_name="telegram", mode="file")
 
-    async def send_one_picture(self, url, id_=None):
+    async def send_one_picture(self, url):
         try:
-            await self.app.send_photo("me", url, caption=id_)
+            await self.app.send_photo("me", url)
         except WebpageCurlFailed:
-            self.logger.error(f"{id_} : {url}")
+            self.logger.error(f"{url}")
         except ExternalUrlInvalid:
-            self.logger.error(f"{id_} : {url}")
+            self.logger.error(f"{url}")
         except MediaEmpty:
-            self.logger.error(f"{id_} : {url}")
+            self.logger.error(f"{url}")
 
     async def pic_twitter(self, urls):
         task = []
